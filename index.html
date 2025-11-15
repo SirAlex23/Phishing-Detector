@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Phishing Detector — Demo & Docs</title>
+    <link rel="stylesheet" href="./phishing-detector.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="logo">🎣</div>
+        <div class="title">
+          <h1>Phishing Detector</h1>
+          <p class="lead">
+            Herramienta educativa de ciberseguridad para evaluar el riesgo de
+            una URL.
+          </p>
+        </div>
+
+        <div class="actions">
+          <a
+            class="btn btn-ghost"
+            href="https://github.com/SirAlex23/Phishing-Detector"
+            target="_blank"
+            rel="noopener"
+            >Ver en GitHub</a
+          >
+          <a
+            class="btn btn-primary"
+            id="download-zip-btn"
+            href="#"
+            target="_blank"
+            rel="noopener"
+            >⤓ Descargar ZIP</a
+          >
+        </div>
+      </header>
+
+      <main>
+        <section class="card">
+          <div class="meta">
+            <strong>Tecnologías:</strong> Python 3 (CLI) • JavaScript (Web Demo)
+            • WHOIS • Colorama
+          </div>
+
+          <div class="warn">
+            <strong>Propósito:</strong> Este proyecto demuestra la lógica de
+            análisis para detectar características comunes de phishing en URLs.
+            La demo web usa JavaScript para la funcionalidad inmediata.
+          </div>
+
+          <h2>Demo en Vivo (Web)</h2>
+          <div class="live-demo-section">
+            <p>Introduce una URL para analizar el riesgo en tiempo real:</p>
+            <input
+              type="text"
+              id="url-input"
+              placeholder="Ej: https://login.banco-midgard.com.es"
+            />
+            <button onclick="checkPhishing()">Analizar URL</button>
+            <div id="result"></div>
+          </div>
+
+          <hr style="margin: 25px 0; border-top: 1px solid #eee" />
+
+          <h2>Demos CLI Visuales</h2>
+          <div class="grid-demos-one-col">
+            <div class="card demo-card">
+              <strong
+                ><span style="color: #00db12; font-size: 1.5em; line-height: 0"
+                  >●</span
+                >
+                Nivel de Riesgo BAJO</strong
+              >
+              <div class="demo-wrap">
+                <img src="demo-bajo.gif" alt="Demo Riesgo Bajo" class="demo" />
+              </div>
+              <p style="margin-top: 10px; color: var(--muted); font-size: 13px">
+                URL legítima (`https://www.google.com`), puntuación de riesgo
+                mínima (0).
+              </p>
+            </div>
+
+            <div class="card demo-card">
+              <strong
+                ><span style="color: #ffc107; font-size: 1.5em; line-height: 0"
+                  >●</span
+                >
+                Nivel de Riesgo MEDIO</strong
+              >
+              <div class="demo-wrap">
+                <img
+                  src="demo-medio.gif"
+                  alt="Demo Riesgo Medio"
+                  class="demo"
+                />
+              </div>
+              <p style="margin-top: 10px; color: var(--muted); font-size: 13px">
+                URL sospechosa con falta de HTTPS y dominio largo, puntuación
+                media (18).
+              </p>
+            </div>
+
+            <div class="card demo-card">
+              <strong>🔴 Nivel de Riesgo ALTO</strong>
+              <div class="demo-wrap">
+                <img src="demo-alto.gif" alt="Demo Riesgo Alto" class="demo" />
+              </div>
+              <p style="margin-top: 10px; color: var(--muted); font-size: 13px">
+                URL con técnicas de ofuscación (carácter `@` en el dominio),
+                puntuación alta.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <aside class="card">
+          <h3>Acciones rápidas</h3>
+          <p style="margin-top: 10px">
+            <a
+              class="download"
+              id="download-zip-cta"
+              href="#"
+              target="_blank"
+              rel="noopener"
+              >⤓ Descargar proyecto (.zip)</a
+            >
+          </p>
+          <div style="margin-top: 14px">
+            <strong>Recursos</strong>
+            <p style="font-size: 13px; color: var(--muted); margin: 6px 0">
+              README:
+              <a
+                href="https://github.com/SirAlex23/Phishing-Detector#readme"
+                target="_blank"
+                >Ver README</a
+              >
+            </p>
+            <p style="font-size: 13px; color: var(--muted); margin: 0">
+              Perfil:
+              <a href="https://github.com/SirAlex23" target="_blank"
+                >github.com/SirAlex23</a
+              >
+            </p>
+          </div>
+        </aside>
+      </main>
+
+      <footer>
+        <small
+          >Proyecto educativo • Uso responsable • No utilizar en sistemas ajenos
+          sin permiso</small
+        >
+      </footer>
+    </div>
+
+    <script>
+      // --- Configuración para el botón Descargar ZIP ---
+      const GITHUB_USER = "SirAlex23";
+      const GITHUB_REPO = "Phishing-Detector";
+      const GITHUB_BRANCH = "main"; // Usa 'master' si esa es tu rama principal
+
+      const zipUrl = `https://github.com/${encodeURIComponent(
+        GITHUB_USER
+      )}/${encodeURIComponent(
+        GITHUB_REPO
+      )}/archive/refs/heads/${encodeURIComponent(GITHUB_BRANCH)}.zip`;
+      document.getElementById("download-zip-btn").href = zipUrl;
+      document.getElementById("download-zip-cta").href = zipUrl;
+    </script>
+    <script src="./script.js"></script>
+  </body>
+</html>
